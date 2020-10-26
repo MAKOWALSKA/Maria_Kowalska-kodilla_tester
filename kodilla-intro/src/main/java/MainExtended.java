@@ -8,8 +8,8 @@ public class MainExtended {
         System.out.println(height);
         char firstSurnameLetter = 'K';
         System.out.println(firstSurnameLetter);
-        boolean isGoodMommy = true;
-        System.out.println(isGoodMommy);
+        boolean MariaIsGoodMommy = true;
+        System.out.println(MariaIsGoodMommy);
         int myAge = 32;
         System.out.println(myAge);
         String favouriteCuisine = "Italian";
