@@ -6,18 +6,21 @@ public class FirstClass {
         notebook.checkPrice();
         notebook.checkWeight();
         notebook.laptopName();
+        notebook.laptopQuality();
 
         Notebook heavyNotebook = new Notebook("2000g", 1500,1980);
         System.out.println(heavyNotebook.weight + " " + heavyNotebook.price);
         heavyNotebook.checkPrice();
         heavyNotebook.checkWeight();
         heavyNotebook.laptopName();
+        heavyNotebook.laptopQuality();
 
         Notebook oldNotebook = new Notebook("1600g", 500,1950);
         System.out.println(oldNotebook.weight + " " + oldNotebook.price);
         oldNotebook.checkPrice();
         oldNotebook.checkWeight();
         oldNotebook.laptopName();
+        oldNotebook.laptopQuality();
 
 
     }

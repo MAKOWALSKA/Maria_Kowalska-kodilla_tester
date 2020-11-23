@@ -36,4 +36,15 @@ public class Notebook {
         {
             System.out.println("Thats Dell."); }
     }
+    public void laptopQuality() {
+        if ((this.year == 1950) && (this.price <600)) {
+            System.out.println("This laptop is old and cheap, so possibly it doesnt work properly.");
+        }
+        else if ((this.year <= 2000) && (this.price >= 1300)) {
+            System.out.println("This laptop costs too much for its age!");
+        }
+        else {
+            System.out.println("TThats seem to be a good quality notebook :)"); }
+    }
 }
+
