@@ -1,16 +1,16 @@
 public class User {
 
-     String name;
-     int age;
+    private String name;
+    private int age;
 
     public User (String name, int age){
         this.name = name;
         this.age = age; }
 
-    public String showName() {
+    public String getName() {
         return name;
     }
-    public int showAge() {
+    public int getAge() {
         return age;
     }
     public static void main(String[] agrs) {
@@ -25,12 +25,12 @@ public class User {
 
         int sum=0;
         for (int i=0; i<users.length; i++){
-            sum=sum+users[i].showAge();
+            sum=sum+users[i].getAge();
         }
         double average =(double) sum/users.length;
         for (int i=0; i<users.length; i++) {
-            if ( users[i].showAge() < average ) {
-                System.out.println(users[i].showName());
+            if ( users[i].getAge() < average ) {
+                System.out.println(users[i].getName());
             }
         }
     }
