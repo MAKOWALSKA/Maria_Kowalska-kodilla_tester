@@ -1,11 +1,14 @@
 public class Book {
-    private String author;
-    private String title;
+    private final String author;
+    private final String title;
 
-    public static Book of(String author, String title) {
-        Book book = Book.of("Leo Tolstoy", "A Letter to a Hindu.");
-
-        return book;
+    private Book(String title, String author) {
+        this.author = author;
+        this.title = title;
     }
 
+    public static Book of(String author, String title) {
+        return new Book(author, title);
+    }
 }
+
