@@ -13,6 +13,7 @@ public class CalculatorTestSuite {
         int sumResult = calculator.sum(a, b);
         Assertions.assertEquals(13, sumResult);
     }
+
     @Test
     public void testSubtract() {
         Calculator calculator = new Calculator();
@@ -21,14 +22,42 @@ public class CalculatorTestSuite {
         int subtractResult = calculator.subtract(a, b);
         Assertions.assertEquals(-3, subtractResult);
     }
+
     @Test
-    public void testSquare() {
+    public void testSquareForZero() {
+        // given
         Calculator calculator = new Calculator();
-        int a = 6;
-        int b = -4;
-        int c = 0;
-        int squareResult = calculator.square(a);
-        Assertions.assertEquals(36, squareResult);
-    } /*nie przyszlo mi nic lepszego do glowy niz wprowadzic wiecej zmiennych i uzywac ich po kolei w zaleznosci od tego co chcemy sprawdzic */
+
+        // when
+        int result = calculator.square(0);
+
+        // then
+        Assertions.assertEquals(0, result);
+    }
+
+    @Test
+    public void testSquareForPositive() {
+        // given
+        Calculator calculator = new Calculator();
+
+        // when
+        int result = calculator.square(4);
+
+        // then
+        Assertions.assertEquals(16, result);
+    }
+
+    @Test
+    public void testSquareForNegative() {
+        // given
+        Calculator calculator = new Calculator();
+
+        // when
+        int result = calculator.square(-4);
+
+        // then
+        Assertions.assertEquals(16, result);
+    }
 }
+
 
