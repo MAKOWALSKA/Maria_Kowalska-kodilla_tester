@@ -1,6 +1,6 @@
 package com.kodilla.collections.interfaces;
 
-class Triangle implements Shape {
+public class Triangle implements Shape {
     private double width;
     private double height;
     private double hypotenuse;
@@ -19,6 +19,15 @@ class Triangle implements Shape {
     @Override
     public double getPerimeter() {
         return width + height + hypotenuse;
+    }
+
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "width=" + width +
+                ", height=" + height +
+                ", hypotenuse=" + hypotenuse +
+                '}';
     }
 }
 
