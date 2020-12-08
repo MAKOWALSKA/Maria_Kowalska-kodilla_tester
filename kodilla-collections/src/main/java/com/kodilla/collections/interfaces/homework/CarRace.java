@@ -1,6 +1,7 @@
 package com.kodilla.collections.interfaces.homework;
 
 public class CarRace {
+
     private static void doRace(Car car) {
         car.increaseSpeed();
         car.increaseSpeed();

@@ -10,16 +10,18 @@ public class Skoda implements Car {
     @Override
     public void increaseSpeed() {
         speed += 50;
-        return;
     }
 
     @Override
     public void decreaseSpeed() {
         speed -= 10;
-        return;
     }
     @Override
     public int getSpeed() {
-        return speed;
+        if (speed <= 0) {
+            return 0;
+        } else {
+            return speed;
+        }
     }
 }

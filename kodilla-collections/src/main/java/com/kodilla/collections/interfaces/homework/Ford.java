@@ -9,15 +9,20 @@ public class Ford implements Car {
 
     @Override
     public void increaseSpeed() {
-        speed +=10;
-        return;
+        speed += 30;
     }
+
     @Override
     public void decreaseSpeed() {
-        speed -= 5;
-        return;
+        speed -= 10;
     }
+
     public int getSpeed() {
-        return speed;
+        if (speed <= 0) {
+            return 0;
+        } else {
+            return speed;
+        }
     }
 }
+
