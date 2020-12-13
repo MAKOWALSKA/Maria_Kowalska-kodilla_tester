@@ -3,4 +3,5 @@ include 'kodilla-intro'
 include 'kolejny modul222'
 include 'kodilla-basic-tests'
 include 'kodilla-collections'
+include 'kodilla-collections-advanced'
 
