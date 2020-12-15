@@ -5,41 +5,55 @@ import com.kodilla.collections.sets.Order;
 import java.util.Objects;
 
 public class Stamp {
-    private String stampName;
-    private String size;
-    private String validation;
+    private final String stampName;
+    private final String size;
+    private final boolean stamped;
 
-    public Stamp(String stampName, String size, String validation) {
+    public Stamp(String stampName, String size, boolean stamped) {
         this.stampName = stampName;
         this.size = size;
-        this.validation = validation;
-    }
-    public String getStampName(){
-        return stampName;
-    }
-    public String getSize(){
-        return size;
-    }
-    public String getValidation(){
-        return validation;
-    }
-    @Override public boolean equals(Object o) {
-        if (o == this) {
-            return true;}
-        if (o == null || getClass() != o.getClass())
-            return false;
-        Stamp stamp = (Stamp) o;
-        return CharSequence.compare(stamp.stampName, stampName) == 0
-                && CharSequence.compare(stamp.size, size) == 0
-                && CharSequence.compare(stamp.validation, validation) == 0;
+        this.stamped = stamped;
     }
 
-    @Override public int hashCode() {
-        return Objects.hash(stampName, size, validation);
+    public String getStampName() {
+        return stampName;
     }
+
+    public String getSize() {
+        return size;
+    }
+
+    public boolean isStamped() {
+        return stamped;
+    }
+
     @Override
-    public String toString(){
-        return "Stamp{" + "stamp name='" + stampName + '\'' + ", stamp size='"
-                + size + '\'' + ", validated/not validated=" + validation + '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Stamp)) return false;
+        Stamp stamp = (Stamp) o;
+        return isStamped() == stamp.isStamped() &&
+                Objects.equals(getStampName(), stamp.getStampName()) &&
+                Objects.equals(getSize(), stamp.getSize());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getStampName(), getSize(), isStamped());
+    }
+
+    @Override
+    public String toString() {
+        return "Stamp{" +
+                "stampName='" + stampName + '\'' +
+                ", size='" + size + '\'' +
+                ", stamped=" + stamped +
+                '}';
     }
 }
+
+
+
+
+
+
