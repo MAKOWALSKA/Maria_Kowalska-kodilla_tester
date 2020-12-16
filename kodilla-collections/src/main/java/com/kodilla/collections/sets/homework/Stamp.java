@@ -1,7 +1,5 @@
 package com.kodilla.collections.sets.homework;
 
-import com.kodilla.collections.sets.Order;
-
 import java.util.Objects;
 
 public class Stamp {

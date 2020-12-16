@@ -12,12 +12,13 @@ public class StampsApplication {
         stamps.add(new Stamp("Polska Zobacz Wiecej", "25,25 X 36,25 m /m", true));
         stamps.add(new Stamp("Polska Zobacz Wiecej", "25,25 X 36,25 m /m", false));
 
-        System.out.println("The number of unrepeatable stamps is :" + stamps.size());
-        System.out.println("-------------------------------------------");
-        System.out.println("The collection 'stamps' contains the following: ");
-        for (Stamp stamp : stamps)
-            System.out.println(stamp);
+        if (stamps.size() == 4)
+            System.out.println("OK");
+                else {
+            System.out.println("Something went wrong");
+        }
     }
 }
+
 
 
