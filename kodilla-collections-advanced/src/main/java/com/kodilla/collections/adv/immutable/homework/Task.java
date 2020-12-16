@@ -1,6 +1,6 @@
 package com.kodilla.collections.adv.immutable.homework;
 
-public final class Task {
+public class Task {
     protected final String title;
     protected final int duration;
 
@@ -17,9 +17,4 @@ public final class Task {
         return duration;
     }
 
-    public static void main(String[] args) {
-        Task task = new Task("to run", 60);
-        System.out.println(task.getTitle());
-        System.out.println(task.getDuration() + " min");
-    }
 }
