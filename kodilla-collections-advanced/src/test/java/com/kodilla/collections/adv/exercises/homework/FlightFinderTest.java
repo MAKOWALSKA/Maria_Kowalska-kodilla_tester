@@ -2,23 +2,33 @@ package com.kodilla.collections.adv.exercises.homework;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FlightFinderTest {
 
+    FlightFinder flightFinder = new FlightFinder();
+
     @Test
     public void findFlightsFrom() {
-        FlightFinder flightFinder = new FlightFinder();
-        flightFinder.findFlightsFrom("LAX");
-
-        assertEquals("LAX", Flight.departure);
+        assertEquals(1, flightFinder.findFlightsFrom("LAX").size());
     }
 
     @Test
     public void findFlightsTo() {
-        FlightFinder flightFinder = new FlightFinder();
-        flightFinder.findFlightsTo("JFK");
+        assertEquals(1, flightFinder.findFlightsTo("JFK").size());
+    }
 
-        assertEquals("JFK", Flight.arrival);
+    @Test
+    public void testEmptyDepartureTable() {
+        List<Flight> result = flightFinder.findFlightsFrom("");
+        assertEquals(0, result.size());
+    }
+
+    @Test
+    public void testEmptyArrivalTable() {
+        List<Flight> result = flightFinder.findFlightsTo("");
+        assertEquals(0, result.size());
     }
 }
