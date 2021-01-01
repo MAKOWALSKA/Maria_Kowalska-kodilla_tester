@@ -8,7 +8,7 @@ public class ForumStats {
                 .map(User::getNumberOfPost)
                 .mapToInt(n -> n)
                 .average()
-                .getAsDouble();
+                .orElse(0.0);
         System.out.println(taskOne);
 
         double taskTwo = UsersRepository.getUsersList()
@@ -17,7 +17,7 @@ public class ForumStats {
                 .map(User::getNumberOfPost)
                 .mapToInt(n -> n)
                 .average()
-                .getAsDouble();
+                .orElse(0.0);
         System.out.println(taskTwo);
     }
 }
