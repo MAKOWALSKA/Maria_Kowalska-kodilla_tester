@@ -11,7 +11,7 @@ public class WarehouseApp {
             warehouse.getOrder("46");
             System.out.println("Order confirmed");
         } catch (OrderDoesntExistException e) {
-            System.out.println("Order not found.");
+            System.out.println(e.getMessage());
         }
     }
 }
