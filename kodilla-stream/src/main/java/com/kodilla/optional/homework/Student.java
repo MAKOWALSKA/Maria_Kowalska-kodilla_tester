@@ -13,12 +13,17 @@ public class Student {
         this.teacher = teacher;
     }
 
+    public Student(String name) {
+        this.name = name;
+        this.teacher = null;
+    }
+
     public String getName() {
         return name;
     }
 
-    public Teacher getTeacher() {
-        return Optional.ofNullable(teacher).orElse(new Teacher("<undefined>"));
+    public Optional<Teacher> getTeacher() {
+        return Optional.ofNullable(teacher);
     }
 
     @Override
