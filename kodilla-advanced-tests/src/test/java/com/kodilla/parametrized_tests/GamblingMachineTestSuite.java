@@ -15,29 +15,29 @@ public class GamblingMachineTestSuite {
     @ParameterizedTest
     @CsvFileSource(resources = "/correctNumbers.csv")
     public void shouldReturnValidCount(String numbers) throws InvalidNumbersException {
+        // given
         String[] array = numbers.split(" ");
-        Set<String> set = new HashSet<>(Arrays.asList(array));
-        Set<Integer> finalSet = set
-                .stream()
-                .map(Integer::parseInt).collect(Collectors.toSet());
-        gamblingMachine.howManyWins(finalSet);
+        Set<Integer> finalSet = parse(array);
+        // when
+        int result = gamblingMachine.howManyWins(finalSet);
+        // then
         assertDoesNotThrow(InvalidNumbersException::new);
-        assertTrue(finalSet.size() <= 6);
-        assertEquals(6, finalSet.size());
+        assertTrue(result >=0 && result <=6);
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/wrongNumbers.csv")
     public void shouldThrowException(String numbers) {
+        // given
         String[] array = numbers.split(" ");
-        Set<String> set = new HashSet<>(Arrays.asList(array));
-        List<Integer> list = new ArrayList<>();
-        for (String s : set) {
-            Integer parseInt = Integer.parseInt(s);
-            list.add(parseInt);
-        }
-        Set<Integer> finalSet = new HashSet<>(list);
+        Set<Integer> finalSet = parse(array);
+        // when then
         assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(finalSet));
+    }
+
+    private Set<Integer> parse(String[] array) {
+        return Arrays.stream(array)
+                .map(Integer::parseInt).collect(Collectors.toSet());
     }
 }
 
