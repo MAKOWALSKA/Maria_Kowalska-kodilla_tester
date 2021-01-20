@@ -19,5 +19,3 @@ public class ShippingCenter {
         return notificationService.fail(address);
     }
 }
-
-
