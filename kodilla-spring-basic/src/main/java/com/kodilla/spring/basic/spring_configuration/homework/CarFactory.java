@@ -2,39 +2,44 @@ package com.kodilla.spring.basic.spring_configuration.homework;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import java.util.Random;
 
 @Configuration
 public class CarFactory {
 
-    String season;
+    enum Season {WINTER, SPRING, SUMMER, AUTUMN}
+
+    Season season;
+    Car car;
 
     @Bean
-    public Car chooseCar() {
-        Car car;
-        Random rand = new Random();
-        int num = rand.nextInt(4);
-        switch (num) {
+    @Primary
+    public Car selectCar() {
+        Random random = new Random();
+        int number = random.nextInt(4);
+        switch (number) {
+            case 0:
+                season = Season.SUMMER;
+                car = new Cabrio();
+                break;
             case 1:
-                season = "winter";
+                season = Season.SPRING;
+                car = new Sedan();
+                break;
             case 2:
-                season = "summer";
+                season = Season.WINTER;
+                car = new SUV();
+                break;
             case 3:
-                season = "autumn";
-            case 4:
-                season = "spring";
-        }
-
-        if (season == "summer") {
-            car = new Cabrio();
-        } else if (season == "winter") {
-            car = new SUV();
-        } else {
-            car = new Sedan();
+                season = Season.AUTUMN;
+                car = new Sedan();
+                break;
         }
         return car;
     }
 }
+
 
 
