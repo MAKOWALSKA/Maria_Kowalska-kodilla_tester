@@ -20,3 +20,4 @@ public class ClockTestSuite {
         Assertions.assertNotEquals(firstBean, thirdBean);
     }
 }
+// cos nie przychodzi mi nic inneo do glowy :/

@@ -9,7 +9,8 @@ import java.time.LocalTime;
 @Scope("prototype")
 public class Clock {
 
-    public LocalTime getTime() {
-        return LocalTime.now();
+    public Clock() {
+        System.out.println(LocalTime.now());
     }
 }
+
