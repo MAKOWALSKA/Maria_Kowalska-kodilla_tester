@@ -21,9 +21,9 @@ public class CarFactoryTestSuite {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic.spring_configuration.homework");
         Car car = (Car) context.getBean("selectCar");
         //when
-        boolean checkLights = car.hasHeadlightsTurnedOn(LocalTime.of(4,0));
+        boolean result = car.hasHeadlightsTurnedOn(LocalTime.of(23,0));
         //then
-        Assertions.assertTrue(checkLights);
+        Assertions.assertTrue(result);
     }
 
     @Test
@@ -32,9 +32,9 @@ public class CarFactoryTestSuite {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic.spring_configuration.homework");
         Car car = (Car) context.getBean("selectCar");
         //when
-        boolean checkLights = car.hasHeadlightsTurnedOn(LocalTime.of(11,0));
+        boolean result = car.hasHeadlightsTurnedOn(LocalTime.of(11,0));
         //then
-        Assertions.assertFalse(checkLights);
+        Assertions.assertFalse(result);
     }
     @Test
     public void randomCarTest() {

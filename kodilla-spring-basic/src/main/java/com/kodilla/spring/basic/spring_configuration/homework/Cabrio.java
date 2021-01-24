@@ -7,7 +7,7 @@ import java.time.LocalTime;
 public class Cabrio implements Car{
 
     public boolean hasHeadlightsTurnedOn(LocalTime hour) {
-        return !(!hour.isAfter(LocalTime.of(20, 00)) && !(hour.isBefore(LocalTime.of(6, 00))));
+        return hour.isAfter(LocalTime.of(20, 0)) && !(hour.isBefore(LocalTime.of(6, 0)));
     }
 
     @Override
