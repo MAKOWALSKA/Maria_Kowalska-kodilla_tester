@@ -1,0 +1,21 @@
+{
+  "id": 5,
+  "user_id": 1629,
+  "title": " API Connector.",
+  "body": "The API Connector add-on for Google Sheets enables requests using the GET, POST, and PUT methods. In general, GET requests are for retrieving information, POST requests are for creating data, while PUT requests are for updating existing records."
+},
+
+{
+"code": 201,
+"meta": null,
+"data": {
+"id": 1282,
+"user_id": 1629,
+"title": " API Connector.",
+"body": "The API Connector add-on for Google Sheets enables requests using the GET, POST, and PUT methods. In general, GET requests are for retrieving information, POST requests are for creating data, while PUT requests are for updating existing records.",
+"created_at": "2021-01-25T23:17:59.139+05:30",
+"updated_at": "2021-01-25T23:17:59.139+05:30"
+}
+
+
+/nie wiem jak załączyć zrzut ekranu z Postmana z żądaniem i odpowiedzią serwera /
