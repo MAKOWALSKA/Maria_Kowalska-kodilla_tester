@@ -1,7 +1,7 @@
 {
-  "carMake":"Skoda",
-  "carModel":"Superb",
-  "seatsOfCar":[
+  "make":"Skoda",
+  "model":"Superb",
+  "seats":[
     {
       "material":"vinyl",
       "colour":"white"
