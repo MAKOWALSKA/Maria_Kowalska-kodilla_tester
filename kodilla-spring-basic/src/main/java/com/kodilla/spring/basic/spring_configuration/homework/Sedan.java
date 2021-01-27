@@ -4,10 +4,12 @@ import org.springframework.stereotype.Component;
 import java.time.LocalTime;
 
 @Component
-public class Sedan implements Car{
+public class Sedan implements Car {
 
     public boolean hasHeadlightsTurnedOn(LocalTime hour) {
-        return hour.isAfter(LocalTime.of(20, 0)) && !(hour.isBefore(LocalTime.of(6, 0)));
+        if (hour.isBefore(LocalTime.of(6, 0))) if (hour.isAfter(LocalTime.of(00, 00))) return true;
+        if (hour.isAfter(LocalTime.of(20, 0))) if (hour.isBefore(LocalTime.of(23, 59))) return true;
+        return false;
     }
 
     @Override

@@ -11,6 +11,7 @@ public class CarFactory {
 
     enum Season {WINTER, SPRING, SUMMER, AUTUMN}
 
+    private Season season;
     private Car car;
 
     @Bean
@@ -20,7 +21,7 @@ public class CarFactory {
         int number = random.nextInt(4);
         switch (number) {
             case 0:
-                Season season = Season.SUMMER;
+                season = Season.SUMMER;
                 car = new Cabrio();
                 break;
             case 1:
@@ -39,6 +40,3 @@ public class CarFactory {
         return car;
     }
 }
-
-
-

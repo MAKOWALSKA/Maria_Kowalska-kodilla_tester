@@ -21,7 +21,7 @@ public class CarFactoryTestSuite {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic.spring_configuration.homework");
         Car car = (Car) context.getBean("selectCar");
         //when
-        boolean result = car.hasHeadlightsTurnedOn(LocalTime.of(23,0));
+        boolean result = car.hasHeadlightsTurnedOn(LocalTime.of(22,0));
         //then
         Assertions.assertTrue(result);
     }
