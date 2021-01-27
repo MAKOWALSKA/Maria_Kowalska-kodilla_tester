@@ -10,14 +10,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class ClockTestSuite {
 
     @Test
-    public void getTimeTest() {
+    public void getTimeTest() throws InterruptedException {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
         Clock firstBean = context.getBean(Clock.class);
+        Thread.sleep(1000);
         Clock secondBean = context.getBean(Clock.class);
-        Clock thirdBean = context.getBean(Clock.class);
-        Assertions.assertNotEquals(firstBean, secondBean);
-        Assertions.assertNotEquals(secondBean, thirdBean);
-        Assertions.assertNotEquals(firstBean, thirdBean);
+        Assertions.assertNotEquals(secondBean.getTime(), firstBean.getTime());
     }
 }
-// cos nie przychodzi mi nic inneo do glowy :/
