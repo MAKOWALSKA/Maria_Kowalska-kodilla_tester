@@ -1,0 +1,23 @@
+{
+  "make":"Skoda",
+  "model":"Superb",
+  "seats":[
+    {
+      "material":"vinyl",
+      "colour":"white"
+    },
+    {
+      "material":"leather",
+      "colour":"red"
+    },
+    {
+      "material":"polyester",
+      "colour":"grey"
+    },
+    {
+      "material":"nylon",
+      "colour":"black"
+    }
+  ],
+  "engineCapacity":1.8
+}
