@@ -3,7 +3,6 @@ package com.kodilla.exception.homework;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 public class WarehouseTestSuite {
 
@@ -24,9 +23,7 @@ public class WarehouseTestSuite {
         //given
         warehouse.addOrder(new Order("52"));
         warehouse.addOrder(new Order("12"));
-        //when
+        // when & then
         Order result = warehouse.getOrder("46");
-        //then
-        assertNull(result);
     }
 }
