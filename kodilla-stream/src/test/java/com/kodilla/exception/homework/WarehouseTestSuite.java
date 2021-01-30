@@ -24,6 +24,6 @@ public class WarehouseTestSuite {
         warehouse.addOrder(new Order("52"));
         warehouse.addOrder(new Order("12"));
         // when & then
-        Order result = warehouse.getOrder("46");
+        warehouse.getOrder("46");
     }
 }
