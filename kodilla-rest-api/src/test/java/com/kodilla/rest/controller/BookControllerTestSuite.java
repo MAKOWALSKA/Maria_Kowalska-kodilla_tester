@@ -8,7 +8,7 @@ import org.mockito.Mockito;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class BookControllerTestSuite {
 
@@ -27,5 +27,15 @@ class BookControllerTestSuite {
 
         //then
         assertThat(result).hasSize(2);
+    }
+
+    @Test
+    public void addBookTest(){
+        BookService bookServiceMock = Mockito.mock(BookService.class);
+        BookController bookController =  new BookController(bookServiceMock);
+        bookController.addBook(new BookDto("Gone with the wind","Margaret Mitchell"));
+        bookController.addBook(new BookDto("Pride and Prejudice","Jane Austen"));
+        Mockito.verify(bookServiceMock, Mockito.times(1)).addBook(new BookDto("Gone with the wind","Margaret Mitchell"));
+        Mockito.verify(bookServiceMock, Mockito.times(1)).addBook(new BookDto("Pride and Prejudice","Jane Austen"));
     }
 }
