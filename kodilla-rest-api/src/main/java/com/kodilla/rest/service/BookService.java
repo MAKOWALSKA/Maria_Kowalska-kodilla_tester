@@ -18,4 +18,6 @@ class BookService {
     public void addBook(BookDto bookDto) {
         books.add(bookDto);
     }
+
+    public void removeBook(int index) { books.remove(index); }
 }
