@@ -1,0 +1,43 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://kodilla.com"
+           xmlns="http://kodilla.com"
+           elementFormDefault="qualified">
+    <xs:element name="car">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="make" type="xs:string"/>
+                <xs:element name="model" type="xs:string"/>
+                <xs:element name="year" type="xs:integer"/>
+                <xs:element name="mileage" type="xs:decimal"/>
+                <xs:element name="transmission" type="xs:string"/>
+                <xs:element name="exteriorColor" type="xs:string"/>
+                <xs:element name="engine" type="xs:string"/>
+                <xs:element name="drivetrain" type="xs:string"/>
+                <xs:element name="bluetooth" type="xs:string"/>
+                <xs:element name="seats" type="xs:string"/>
+                <xs:element name="navigation" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+
+        <!-- XML -->
+
+        <?xml version="1.0" encoding="UTF-8"?>
+<vh:car xmlns:vh="http://kodilla.com"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://kodilla.com vehicle.xsd">
+<vh:make>Maserati</vh:make>
+<vh:model>GranTurismo Sport</vh:model>
+<vh:year>2015</vh:year>
+<vh:mileage>34,566</vh:mileage>
+<vh:transmission>automatic</vh:transmission>
+<vh:exteriorColor>gray</vh:exteriorColor>
+<vh:engine>V8</vh:engine>
+<vh:drivetrain>rear-wheel drive</vh:drivetrain>
+<vh:bluetooth>yes</vh:bluetooth>
+<vh:seats>leather</vh:seats>
+<vh:navigation>yes</vh:navigation>
+</vh:car>
