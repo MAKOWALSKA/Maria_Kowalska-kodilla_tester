@@ -6,10 +6,8 @@ import java.time.LocalTime;
 @Component
 public class Sedan implements Car {
 
-    public boolean hasHeadlightsTurnedOn(LocalTime hour) {
-        if (hour.isBefore(LocalTime.of(6, 0))) if (hour.isAfter(LocalTime.of(00, 00))) return true;
-        if (hour.isAfter(LocalTime.of(20, 0))) if (hour.isBefore(LocalTime.of(23, 59))) return true;
-        return false;
+    public boolean hasHeadlightsTurnedOn(LocalTime time) {
+        return time.isAfter(LocalTime.of(19,59)) || time.isBefore(LocalTime.of(6,00));
     }
 
     @Override
