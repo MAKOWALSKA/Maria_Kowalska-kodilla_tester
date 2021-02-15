@@ -7,13 +7,17 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class ShopTestSuite {
     Shop shop = new Shop();
     Order one = new Order("Angelo Comunello", LocalDate.of(2020,12,31),250 );
     Order two = new Order("Radoslaw Jaskot", LocalDate.of(2019,4,2),100 );
     Order three = new Order("Michal Marzec", LocalDate.of(2018,2,27), 80);
+
+    @BeforeAll
+    public static void IntroMessage(){
+        System.out.println("Starting testing.");
+    }
 
     @BeforeEach
     public void addOrder() {
@@ -29,53 +33,56 @@ public class ShopTestSuite {
     }
 
     @Test
-    public void returnEmptyListWhenDataOrderIsOutOfRange() {
-        List<Order> emptyList = shop.getOrderFromCertainPeriod
-                (LocalDate.of(2020,5,30),
-                        LocalDate.of(2018,2,1));
-        assertEquals(Collections.emptyList(), emptyList);
-    }
-
-    @Test
-    public void getOrderInValueRangeTest() {
-        List<Order> orders = shop.getOrderFromValueRange(90,260);
-        assertEquals(2, orders.size());
-    }
-
-    @Test
-    public void returnEmptyListWhenOrdersOutOfValueRange() {
-        List<Order> emptyList1 = shop.getOrderFromValueRange(500, 1000);
-        assertEquals(Collections.emptyList(), emptyList1);
-    }
-
-    @Test
-    public void totalValueTest() {
+    //są zamówienia
+    public void existingOrderTotalValueTest() {
         shop.getTotalValue();
         assertEquals(430, shop.getTotalValue(), 0.01);
     }
 
     @Test
-    public void getExistingOrderTest() {
-        Order result = shop.getOrder(0);
-        assertEquals("Angelo Comunello", result.getClientLoginName());
-        assertEquals(250, result.getOrderValue());
+    //nie ma zamowien (sum 0)
+    public void totalValueWhenNoOrdersMadeTest() {
+        shop.getOrder().clear();
+        assertEquals(0, shop.getTotalValue());
     }
 
     @Test
-    public void orderWhichDoesNotExistTest() {
-        Order order = shop.getOrder(50);
-        assertNull(order.getOrderDate());
+    public void returnNumberOfOrdersBetweenTwoDates() {
+        int list = shop.getOrderBtwTwoDates
+                (LocalDate.of(2020,12,1),
+                        LocalDate.of(2021,1,1)).size();
+        assertEquals(1, list);
+    }
+
+    @Test
+    public void returnEmptyListWhenDatesAreIncorrect() {
+        List<Order> orders = shop.getOrderBtwTwoDates
+                (LocalDate.of(2021,1,1),
+                        LocalDate.of(2020,12,1));
+        assertEquals(Collections.emptyList(), orders);
+    }
+
+    @Test
+    public void getNumberOfOrdersInValueRangeTest() {
+        List<Order> orders = shop.getOrderFromValueRange(90,260);
+        assertEquals(2, orders.size());
+    }
+
+    @Test
+    public void returnEmptyListWhenValuesAreIncorrect() {
+        List<Order> orders = shop.getOrderFromValueRange(1000, 500);
+        assertEquals(Collections.emptyList(), orders);
+    }
+
+    @Test
+    public void returnEmptyListWhenOrdersOutOfValueRange() {
+        List<Order> orders = shop.getOrderFromValueRange(500, 1000);
+        assertEquals(Collections.emptyList(), orders);
     }
 
     @AfterEach
     public void resetValues(){
         System.out.println("Next test.");
-    }
-
-    @BeforeAll
-    public static void IntroMessage(){
-        System.out.println("Starting testing.");
-
     }
 
     @AfterAll
