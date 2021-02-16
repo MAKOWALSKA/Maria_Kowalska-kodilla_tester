@@ -25,7 +25,7 @@ public class Order {
 
     @Override
     public boolean equals(Object obj) {
-        if(this == obj)return true;
+        if (this == obj)return true;
         if (obj == null || getClass() != obj.getClass())
             return false;
         Order order = (Order) obj;

@@ -15,7 +15,7 @@ public class ShopTestSuite {
     Order three = new Order("Michal Marzec", LocalDate.of(2018,2,27), 80);
 
     @BeforeAll
-    public static void IntroMessage(){
+    public static void IntroMessage() {
         System.out.println("Starting testing.");
     }
 
@@ -81,12 +81,12 @@ public class ShopTestSuite {
     }
 
     @AfterEach
-    public void resetValues(){
+    public void resetValues() {
         System.out.println("Next test.");
     }
 
     @AfterAll
-    public static void GoodByeMessage(){
+    public static void GoodByeMessage() {
         System.out.println("Testing completed.");
     }
 }
