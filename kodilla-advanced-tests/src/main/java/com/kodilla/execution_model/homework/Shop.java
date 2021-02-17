@@ -28,7 +28,7 @@ public class Shop {
         if (orders.size() == 0)
             return Collections.emptyList();
         return orders.stream()
-                .filter(value -> value.getValue() >= min && value.getValue() <= max)
+                .filter(order -> order.getValue() >= min && order.getValue() <= max)
                 .collect(Collectors.toList());
     }
 
