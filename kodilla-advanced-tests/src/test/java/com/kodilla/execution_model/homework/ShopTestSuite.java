@@ -10,9 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShopTestSuite {
     Shop shop = new Shop();
-    Order one = new Order("Angelo Comunello", LocalDate.of(2020,12,31),250 );
-    Order two = new Order("Radoslaw Jaskot", LocalDate.of(2019,4,2),100 );
-    Order three = new Order("Michal Marzec", LocalDate.of(2018,2,27), 80);
+    Order one = new Order("Angelo Comunello", LocalDate.of(2020, 12, 31), 250);
+    Order two = new Order("Radoslaw Jaskot", LocalDate.of(2019, 4, 2), 100);
+    Order three = new Order("Michal Marzec", LocalDate.of(2018, 2, 27), 80);
 
     @BeforeAll
     public static void IntroMessage() {
@@ -49,22 +49,22 @@ public class ShopTestSuite {
     @Test
     public void returnNumberOfOrdersBetweenTwoDates() {
         int list = shop.getOrderBtwTwoDates
-                (LocalDate.of(2020,12,1),
-                        LocalDate.of(2021,1,1)).size();
+                (LocalDate.of(2020, 12, 1),
+                        LocalDate.of(2021, 1, 1)).size();
         assertEquals(1, list);
     }
 
     @Test
     public void returnEmptyListWhenDatesAreIncorrect() {
         List<Order> orders = shop.getOrderBtwTwoDates
-                (LocalDate.of(2021,1,1),
-                        LocalDate.of(2020,12,1));
+                (LocalDate.of(2021, 1, 1),
+                        LocalDate.of(2020, 12, 1));
         assertEquals(Collections.emptyList(), orders);
     }
 
     @Test
     public void getNumberOfOrdersInValueRangeTest() {
-        List<Order> orders = shop.getOrderFromValueRange(90,260);
+        List<Order> orders = shop.getOrderFromValueRange(90, 260);
         assertEquals(2, orders.size());
     }
 

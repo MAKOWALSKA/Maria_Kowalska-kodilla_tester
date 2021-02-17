@@ -12,6 +12,7 @@ public class Shop {
     public List<Order> getOrder() {
         return orders;
     }
+
     public void addOrder(Order order) {
         this.orders.add(order);
     }
@@ -20,7 +21,7 @@ public class Shop {
         if (to.isBefore(from))
             return Collections.emptyList();
         return orders.stream()
-                .filter(date -> date.getDate().isAfter(from)&& date.getDate().isBefore(to))
+                .filter(order -> order.getDate().isAfter(from) && order.getDate().isBefore(to))
                 .collect(Collectors.toList());
     }
 
@@ -28,7 +29,7 @@ public class Shop {
         if (orders.size() == 0)
             return Collections.emptyList();
         return orders.stream()
-                .filter(value -> value.getValue() >= min && value.getValue() <= max)
+                .filter(order -> order.getValue() >= min && order.getValue() <= max)
                 .collect(Collectors.toList());
     }
 
@@ -36,10 +37,10 @@ public class Shop {
         return orders.size();
     }
 
-    public double  getTotalValue() {
+    public double getTotalValue() {
         return orders.stream()
                 .map(Order::getValue)
-                .mapToDouble(a ->a)
+                .mapToDouble(a -> a)
                 .sum();
     }
 }

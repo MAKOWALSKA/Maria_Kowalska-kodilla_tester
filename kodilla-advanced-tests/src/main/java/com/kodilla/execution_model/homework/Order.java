@@ -9,7 +9,7 @@ public class Order {
     private final LocalDate orderDate;
     private final double orderValue;
 
-    public Order(String clientLoginName,LocalDate orderDate, double orderValue) {
+    public Order(String clientLoginName, LocalDate orderDate, double orderValue) {
         this.clientLoginName = clientLoginName;
         this.orderDate = orderDate;
         this.orderValue = orderValue;
@@ -25,22 +25,22 @@ public class Order {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)return true;
+        if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass())
             return false;
         Order order = (Order) obj;
-        return orderValue == order.orderValue && Objects.equals(orderDate,order.orderDate)&&
-                Objects.equals(clientLoginName,order.clientLoginName);
+        return orderValue == order.orderValue && Objects.equals(orderDate, order.orderDate) &&
+                Objects.equals(clientLoginName, order.clientLoginName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(clientLoginName,orderDate,orderValue);
+        return Objects.hash(clientLoginName, orderDate, orderValue);
     }
 
     @Override
     public String toString() {
-        return "Order: "+" / Order Value in PLN: " + orderValue+" / Date order: "+ orderDate + " / client (login) : "
+        return "Order: " + " / Order Value in PLN: " + orderValue + " / Date order: " + orderDate + " / client (login) : "
                 + clientLoginName;
     }
 }
