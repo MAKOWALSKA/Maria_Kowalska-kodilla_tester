@@ -65,5 +65,35 @@ public class WalletSteps implements En {
         Then("I should be told that I don't have enough money in my wallet", () -> {
             Assert.assertEquals("You don't have enough money in your wallet", "You don't have enough money in your wallet");
         });
+
+        Given("I have deposited $100 in my wallet", () -> {
+            wallet.deposit(100);
+            Assert.assertEquals("Incorrect wallet balance", 100, wallet.getBalance());
+        });
+        When("I don't request any withdrawal", () -> {
+            Cashier cashier = new Cashier(cashSlot);
+            cashier.withdraw(wallet, 0);
+        });
+        Then("$0 should be dispensed", () -> {
+            Assert.assertEquals(0, cashSlot.getContents());
+        });
+        Then("the balance of my wallet should be $100", () -> {
+            Assert.assertEquals("Incorrect wallet balance", 100,  wallet.getBalance());
+        });
+
+        Given("I have deposited $1000 in my wallet", () -> {
+            wallet.deposit(1000);
+            Assert.assertEquals("Incorrect wallet balance", 1000, wallet.getBalance());
+        });
+        When("I request $1000", () -> {
+            Cashier cashier = new Cashier(cashSlot);
+            cashier.withdraw(wallet, 1000);
+        });
+        Then("$1000 should be dispensed", () -> {
+            Assert.assertEquals(1000, cashSlot.getContents());
+        });
+        Then("the balance of my wallet should be $0", () -> {
+            Assert.assertEquals("Incorrect wallet balance", 0,  wallet.getBalance());
+        });
     }
 }
