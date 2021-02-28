@@ -35,7 +35,11 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.23'
 }
 spotbugs {
     toolVersion = '3.1.12'
