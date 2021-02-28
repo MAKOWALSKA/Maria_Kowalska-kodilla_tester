@@ -13,7 +13,7 @@ jacocoTestCoverageVerification {
         rule {
             element = 'METHOD'
             limit {
-                counter = 'LINE'
+                counter = 'BRANCH'
                 value = 'COVEREDRATIO'
                 minimum = 1.0
             }
