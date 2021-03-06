@@ -6,7 +6,11 @@ public class BadCodeExample {
     private String type;
 
     public static double getPi() {
-        return 3.14;
+        return Math.PI;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getType() {
@@ -21,5 +25,10 @@ public class BadCodeExample {
         BadCodeExample badCodeExample = (BadCodeExample) o;
 
         return Objects.equals(type, badCodeExample.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type);
     }
 }
