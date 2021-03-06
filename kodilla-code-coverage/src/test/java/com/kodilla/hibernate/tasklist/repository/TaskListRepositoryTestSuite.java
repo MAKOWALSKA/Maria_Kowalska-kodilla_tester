@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TaskListRepositoryTestSuite {
@@ -25,11 +23,10 @@ public class TaskListRepositoryTestSuite {
         taskListRepository.save(taskList);
         String listName = taskList.getListName();
         //When
-        List<TaskList> listOfTaskLists = taskListRepository.findByListName(listName);
+        taskListRepository.findByListName(listName);
         //Then
-        Assert.assertEquals("TaskName", taskList.getListName());
+        Assert.assertTrue(listName.contains("TaskName"));
         //CleanUp
-        int id = listOfTaskLists.get(0).getId();
-        taskListRepository.deleteById(id);
+        taskListRepository.deleteAll();
     }
 }
