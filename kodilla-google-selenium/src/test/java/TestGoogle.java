@@ -3,8 +3,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.GoogleResults;
 import pages.GoogleSearch;
+import pages.Random;
+
+import static org.junit.Assert.assertSame;
 
 
 public class TestGoogle {
@@ -29,5 +34,18 @@ public class TestGoogle {
     public void testGooglePage() {
         GoogleSearch googleSearch = new GoogleSearch(driver);
         googleSearch.searchResults();
+    }
+
+    @Test
+    public void testOneRandomResult() {
+        GoogleSearch googleSearch = new GoogleSearch(driver);
+        googleSearch.searchResults();
+        GoogleResults googleResults = new GoogleResults(driver);
+        WebElement webElement = googleResults.randomResult();
+        Random random = new Random(driver);
+
+        WebElement webElementTest = random.clickRandomPage(webElement);
+
+        assertSame(webElement, webElementTest);
     }
 }
