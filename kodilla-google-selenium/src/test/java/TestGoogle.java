@@ -11,10 +11,10 @@ import pages.Random;
 
 import static org.junit.Assert.assertSame;
 
-
 public class TestGoogle {
 
     WebDriver driver;
+    private final Random random = new Random(driver);
 
     @Before
     public void testSetup() {
@@ -42,7 +42,6 @@ public class TestGoogle {
         googleSearch.searchResults();
         GoogleResults googleResults = new GoogleResults(driver);
         WebElement webElement = googleResults.randomResult();
-        Random random = new Random(driver);
 
         WebElement webElementTest = random.clickRandomPage(webElement);
 

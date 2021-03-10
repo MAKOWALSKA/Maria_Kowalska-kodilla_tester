@@ -10,12 +10,14 @@ import java.util.Random;
 
 public class GoogleResults extends AbstractPage {
 
-    @FindBy(css = "div[class='g']")                  // [1]
-    private List<WebElement> results;                // [2]
+    private final Random random = new Random();
 
-    public GoogleResults(WebDriver driver) {         // [3]
-        super(driver);                                // [4]
-        PageFactory.initElements(this.driver, this);  // [5]
+    @FindBy(css = "div[class='g']")
+    private List<WebElement> results;
+
+    public GoogleResults(WebDriver driver) {
+        super(driver);
+        PageFactory.initElements(this.driver, this);
     }
 
     public void iSeeResults() {
@@ -24,13 +26,8 @@ public class GoogleResults extends AbstractPage {
     }
 
     public WebElement randomResult() {
-        Random random = new Random();
         int randomPageId = random.nextInt(results.size());
         WebElement webElement = results.get(randomPageId);
-
-        System.out.println(webElement.getTagName());
-        System.out.println(webElement);
-
         return results.get(randomPageId);
     }
 }
